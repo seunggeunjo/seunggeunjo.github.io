@@ -1,56 +1,54 @@
 - layout: top-middle
-  name: 개발 파트 매니징
-  link: https://www.notion.so/5badc2ba03904832bce8fdf3dc4a407b
+  name: S-MES 자체 패키지 개발
   quote: >
-    2018.04.01 ~ 현재
+    2023.01 ~ 2024.12
   description: | # this will include new lines to allow paragraphs
-    * 인프랩 CTO (2021.07.01 ~ 현재)
-    * 인프랩 신규 서비스(랠릿) 프로젝트 전체 리드 (2021.07.01 ~ 2022.01.31)
-    * 배달의 민족 정산 시스템팀 개발 파트 리드 (2019.07.01 ~ 2021.04.19)
-    * 배달의 민족 포인트 개편 TF 리드 (2018.04.01 ~ 2018.07.31)
+    * <mark>자체 MES 솔루션</mark> 전체 설계 및 개발 참여
+    * <mark>POP</mark> 시스템 개발 (생산 현장 실시간 데이터 수집 및 모니터링)
+    * <mark>PDA</mark> 시스템 개발 (모바일 입출고/재고 관리)
+    * <mark>SAP RFC Interface</mark> 개발 (ERP 시스템 연동)
+    * <mark>Launcher</mark> 개발 (자동 업데이트 프로그램)
+    * 본사를 포함한 5개 이상의 사업장에 성공적으로 도입
 
 - layout: top-middle
-  name: 레거시 시스템 리팩토링/리엔지니어링
-  link:
+  name: MES/SAP 구축 프로젝트 (다수 사업장)
   quote: >
+    2022.01 ~ 2025.01
   description: | # this will include new lines to allow paragraphs
-    * 인프런 전체 시스템 (JS & Express => TS & NestJS) 마이그레이션 (2021.06.01 ~ ing..)
-    * 인프런 RDS -> Aurora 마이그레이션 (2021.06.01 ~ 2021.06.20)
-    * [배달의 민족 정산 시스템 AWS 마이그레이션](https://www.youtube.com/watch?v=3ynQeAZpk4Y) (2020.06.01 ~ 2020.11.20)
-    * [배달의 민족 주문 시스템 개편](https://jojoldu.tistory.com/373) (2018.08.01 ~ 2018.10.31)
-    * [배달의 민족 포인트 시스템 개편](http://bit.ly/2EcIXIA) (2018.04.01 ~ 2018.07.31)
-    * [배달의 민족 정산 시스템 개편](http://bit.ly/2ksIEQB) (2017.01.01 ~ 2017.08.17)
+    * <mark>아산성우하이텍 MES/SAP 구축</mark> (2025) - POP 개발
+    * <mark>유럽법인 품질/출하 프로세스 고도화</mark> (2024) - ERP/PDA 표준화
+    * <mark>서창/정관공장 MES/SAP 구축</mark> (2023) - PDA 개발
+    * <mark>핫스탬핑 MES/SAP 구축</mark> (2022) - PM 업무 수행
+    * <mark>코일센타 MES/SAP 구축</mark> (2022) - PM 업무 수행
+    * 제조 현장 전체 프로세스 디지털화 및 자동화 달성
 
 - layout: top-middle
-  name: 대용량 데이터 처리 및 성능 개선
-  link:
+  name: POP 실시간 모니터링 시스템 재구축
   quote: >
+    2022.03 ~ 2022.08
   description: | # this will include new lines to allow paragraphs
-    * 인프런 PostgreSQL SlowQuery 전체 튜닝
-    * 일 주문 300만건의 정산 시스템 API / Batch 개발 및 운영
-    * 일 주문 100만건의 포인트 시스템 메세지큐 / API / Batch 개발 및 운영
-    * 일 PV 2000만건의 포털 메인페이지 개발 및 관리
-    * Message Queue (AWS SQS) 를 이용한 비동기 포인트 처리 / 메일 발송 시스템 구현
-    * [대용량 Batch 시스템 구현](https://jojoldu.tistory.com/category/Spring%20Batch)
-    * [Pinpoint/Ngrinder를 통한 성능 테스트 및 개선](https://jojoldu.tistory.com/318)
-    * [JPA / Querydsl / MySQL 성능 개선](https://jojoldu.tistory.com/tag/db%20%EC%84%B1%EB%8A%A5%EA%B0%9C%EC%84%A0)
+    * 서창공장(본사) <mark>실시간 생산 모니터링</mark> 시스템 재구축
+    * <mark>WEB 기반 대시보드</mark> 개발 (생산 현황 실시간 가시화)
+    * 레거시 시스템 성능 개선 및 안정성 향상
+    * 현장 사용자 피드백 기반 UX/UI 개선
 
 - layout: top-middle
-  name: 견고한 데이터 구조 및 애플리케이션 설계
-  link:
+  name: 데이터 분산 처리 인프라 구축
   quote: >
+    2023.01 ~ 현재
   description: | # this will include new lines to allow paragraphs
-    * 일 600억원 & 300만건 주문에서의 일일 정산
-    * 감사 추적(Audit Trail)을 위한 채권/미수금/보상의 Update가 없는 도메인 설계
-    * 감사 추적(Audit Trail)을 위한 이벤트 기반 포인트 도메인 설계
-    * 정산 프로젝트 TestCode 2500개 / Line Coverage 61%
+    * <mark>Docker</mark> 기반 리눅스 환경 구축 및 운영
+    * <mark>Redis</mark> 캐시 서버 구축 (실시간 데이터 처리 성능 향상)
+    * <mark>RabbitMQ</mark> 메시지 큐 시스템 구축 (비동기 데이터 처리)
+    * <mark>TimeScale</mark> 시계열 데이터베이스 구축 (생산 이력 데이터 관리)
+    * 로그 관리 및 모니터링 시스템 강화
 
 - layout: top-middle
-  name: IDC 및 AWS 클라우드 인프라 운영 관리
-  link:
+  name: 레거시 시스템 개편 및 운영
   quote: >
+    2017.01 ~ 2022.01
   description: | # this will include new lines to allow paragraphs
-    * [AWS] Jenkins / Code Deploy / Beanstalk 을 이용한 무중단 배포
-    * [IDC] Jenkins / L4 / Nginx를 이용한 무중단 배포
-    * [IDC] MHA 를 이용한 MariaDB HA 환경 구성
-    * [IDC] Ansible를 이용한 IDC 인프라 자동화
+    * 제조 현장 레거시 시스템 분석 및 개선
+    * 업무 프로세스 효율화를 통한 생산성 향상
+    * 사용자 요구사항 기반 지속적인 시스템 개선
+    * MES 시스템 유지보수 및 안정적 운영
