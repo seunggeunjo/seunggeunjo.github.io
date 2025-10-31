@@ -22,8 +22,9 @@ github_username:  seunggeunjo
 # about_title: About Me
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  소프트웨어 엔지니어 조승근입니다.<br/>
-  여기에 자기소개를 작성해주세요.
+  현장의 효율성 증대를 위해 사용자들의 업무 환경을 끊임없이 개선해왔습니다. 레거시 시스템 개편 뿐만아니라 최근에는 당사 <mark>MES 자체 솔루션</mark> 설계 및 개발에 참여하여 본사를 포함한 <mark>5개 이상의 사업장</mark>에 신규 시스템을 성공적으로 도입하고 운영 중에 있습니다.<br/>
+  장기적인 시스템 운영 전략을 위해 <mark>데이터 분산 처리</mark> 방안에 대해 고민하여 <mark>Docker</mark>를 통한 리눅스 환경에서 <mark>Redis•RabbitMQ•TimeScale</mark> 등 서비스를 구축하였고 캐시 데이터 활용 및 로그 관리를 강화한 경험이 있습니다.<br/>
+  현재도 지속적으로 사용자들의 요구사항을 수용하고 개선하며 <mark>업무 환경 효율성 증대</mark>에 크게 기여하고 있습니다.
 
 
 # Projects Section
