@@ -1,54 +1,70 @@
-- layout: top-middle
-  name: S-MES 자체 패키지 개발
-  quote: >
-    2023.01 ~ 2024.12
-  description: | # this will include new lines to allow paragraphs
-    * <mark>자체 MES 솔루션</mark> 전체 설계 및 개발 참여
-    * <mark>POP</mark> 시스템 개발 (생산 현장 실시간 데이터 수집 및 모니터링)
-    * <mark>PDA</mark> 시스템 개발 (모바일 입출고/재고 관리)
-    * <mark>SAP RFC Interface</mark> 개발 (ERP 시스템 연동)
-    * <mark>Launcher</mark> 개발 (자동 업데이트 프로그램)
-    * 본사를 포함한 5개 이상의 사업장에 성공적으로 도입
+# points: 문제 / 한 일 / 결과 등 라벨-내용 쌍, sites: 사업장 표, tags: 기술 태그
+- name: AI 활용 개발 · 하네스 엔지니어링
+  dates: 2026 – 현재
+  summary: 새로운 기술 동향을 빠르게 파악하고 실무에 적용하는 데 관심이 많습니다.
+  points:
+    - label: 한 일
+      text: Orca로 Claude Code와 Codex 에이전트에게 설계·구현·검증을 나눠 맡기는 오케스트레이션을 구성하고, 작업 규칙과 검증 절차를 설계하는 하네스 엔지니어링을 적용했습니다.
+    - label: 지식 축적
+      text: 작업마다 판단 근거와 검증 결과를 Obsidian에 기록하고, 다음 작업 전에 비슷한 사례를 먼저 찾아 반영합니다.
+    - label: 결과
+      text: 반복 개발과 검증에 드는 시간을 줄여 팀 개발 효율에 기여하고 있습니다.
+  tags: [Orca, Claude Code, Codex, Obsidian, Harness Engineering]
 
-- layout: top-middle
-  name: MES/SAP 구축 프로젝트 (다수 사업장)
-  quote: >
-    2022.01 ~ 2025.01
-  description: | # this will include new lines to allow paragraphs
-    * <mark>아산성우하이텍 MES/SAP 구축</mark> (2025) - POP 개발
-    * <mark>유럽법인 품질/출하 프로세스 고도화</mark> (2024) - ERP/PDA 표준화
-    * <mark>서창/정관공장 MES/SAP 구축</mark> (2023) - PDA 개발
-    * <mark>핫스탬핑 MES/SAP 구축</mark> (2022) - PM 업무 수행
-    * <mark>코일센타 MES/SAP 구축</mark> (2022) - PM 업무 수행
-    * 제조 현장 전체 프로세스 디지털화 및 자동화 달성
+- name: 멕시코 SAP/MES 구축
+  dates: 2025.12 – 2026.10
+  summary: 멕시코 법인 신규 구축에서 PL을 맡아 POP와 PDA의 아키텍처를 처음부터 설계했습니다.
+  core: # 공통 코어 위에 올라가는 업무 모듈
+    title: POP 공통 코어 · MVP 구조
+    modules: [생산, 영업, 자재, 품질, 물류]
+  points:
+    - label: POP 설계
+      text: POP를 MVP 구조로 설계해 생산뿐 아니라 영업·자재·품질·물류 프로세스를 하나의 핵심 구조로 통합했습니다. 개발자는 같은 틀 위에서 각 업무 화면을 만들 수 있어 개발이 쉬워지고 화면 간 일관성이 생겼습니다.
+    - label: PDA 설계
+      text: PDA 아키텍처 전체를 설계했습니다.
+    - label: 역할
+      text: PL로서 개발 아키텍처와 방향을 정하고, POP·웹 MES·인터페이스(IF)의 생산 핵심 프로세스를 직접 설계·개발했습니다.
+  tags: [PL, MVP, POP, PDA, Web MES, SAP IF]
 
-- layout: top-middle
-  name: POP 실시간 모니터링 시스템 재구축
-  quote: >
-    2022.03 ~ 2022.08
-  description: | # this will include new lines to allow paragraphs
-    * 서창공장(본사) <mark>실시간 생산 모니터링</mark> 시스템 재구축
-    * <mark>WEB 기반 대시보드</mark> 개발 (생산 현황 실시간 가시화)
-    * 레거시 시스템 성능 개선 및 안정성 향상
-    * 현장 사용자 피드백 기반 UX/UI 개선
+- name: 데이터 분산 처리 인프라
+  dates: 2025.01 – 현재
+  summary: 사업장이 늘수록 운영 DB에 몰리는 조회와 이력 데이터를 나눠 담았습니다.
+  points:
+    - label: 문제
+      text: 실시간 모니터링 조회와 쌓여 가는 생산 이력이 모두 운영 DB에 몰렸습니다.
+    - label: 한 일
+      text: Docker 기반 Linux 환경에 Redis(실시간 화면 캐시), RabbitMQ(현장 데이터 비동기 처리), TimescaleDB(생산 이력 시계열 저장)를 구축했습니다.
+    - label: 결과
+      text: 실시간 화면 조회 성능을 개선하고 로그·이력 관리 체계를 갖췄습니다.
+  tags: [Docker, Linux, Redis, RabbitMQ, TimescaleDB]
 
-- layout: top-middle
-  name: 데이터 분산 처리 인프라 구축
-  quote: >
-    2023.01 ~ 현재
-  description: | # this will include new lines to allow paragraphs
-    * <mark>Docker</mark> 기반 리눅스 환경 구축 및 운영
-    * <mark>Redis</mark> 캐시 서버 구축 (실시간 데이터 처리 성능 향상)
-    * <mark>RabbitMQ</mark> 메시지 큐 시스템 구축 (비동기 데이터 처리)
-    * <mark>TimeScale</mark> 시계열 데이터베이스 구축 (생산 이력 데이터 관리)
-    * 로그 관리 및 모니터링 시스템 강화
+- name: S-MES 자체 패키지 개발
+  dates: 2023.01 – 2024.12
+  summary: 사업장마다 같은 MES를 빠르게 도입할 수 있도록, 현장 단말부터 ERP 연동까지 하나의 패키지로 만들었습니다.
+  points:
+    - label: 한 일
+      text: POP(생산 실적 수집·모니터링), PDA(입출고·재고), 웹 MES를 개발하고 SAP RFC 인터페이스로 ERP와 연결했습니다. 현장 PC 배포는 자동 업데이트 런처로 해결했습니다.
+    - label: 결과
+      text: 본사 포함 5개 이상 사업장이 이 패키지로 MES를 도입해 운영 중입니다.
+  tags: [C#, WinForms, Blazor Server, DevExpress, SAP NCo, MSSQL]
 
-- layout: top-middle
-  name: 레거시 시스템 개편 및 운영
-  quote: >
-    2017.01 ~ 2022.01
-  description: | # this will include new lines to allow paragraphs
-    * 제조 현장 레거시 시스템 분석 및 개선
-    * 업무 프로세스 효율화를 통한 생산성 향상
-    * 사용자 요구사항 기반 지속적인 시스템 개선
-    * MES 시스템 유지보수 및 안정적 운영
+- name: 서창공장 POP 실시간 모니터링 재구축
+  dates: 2022.03 – 2022.08
+  summary: 본사 공장의 생산 모니터링을 웹 대시보드로 다시 만들었습니다.
+  points:
+    - label: 한 일
+      text: 레거시 모니터링의 성능·안정성 문제를 걷어내고, 생산 현황을 실시간으로 보여 주는 웹 대시보드를 개발했습니다.
+    - label: 결과
+      text: 현장 사용자 피드백을 반영해 화면 구성과 사용성을 개선했습니다.
+  tags: [Web Dashboard, POP]
+
+- name: 사업장별 MES/SAP 구축
+  dates: 2022 – 2026
+  summary: 국내외 신규 시스템 도입 현장에서 PL·PM 또는 POP·PDA 개발을 맡았습니다.
+  sites: # name은 짧게(카드 높이 통일), note는 한 줄 범위, region: 국내/해외
+    - { year: 2026, name: 멕시코 법인, note: SAP/MES 구축, role: PL, region: 해외 }
+    - { year: 2025, name: 아산성우하이텍, note: MES/SAP 구축, role: POP 개발, region: 국내 }
+    - { year: 2024, name: 체코 법인, note: 품질·출하 고도화, role: PDA 개발, region: 해외 }
+    - { year: 2023, name: 서창 · 정관공장, note: MES/SAP 구축, role: PDA 개발, region: 국내 }
+    - { year: 2022, name: 핫스탬핑, note: MES/SAP 구축, role: PM, region: 국내 }
+    - { year: 2022, name: 코일센타, note: MES/SAP 구축, role: PM, region: 국내 }

@@ -1,48 +1,134 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "ko" }}">
-
-{%- include head.html -%}
-    <meta property="og:image" content="https://t1.daumcdn.net/cfile/tistory/2237674457FB7EA215">
+<html lang="{{ site.lang | default: 'ko' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.name }} | {{ site.title }}</title>
+  {%- seo title=false -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+</head>
 <body>
+<main class="sheet">
+  <header>
+    <img src="{{ site.profile_image | relative_url }}" alt="{{ site.name }} 프로필 사진">
+    <div>
+      <div class="eyebrow">{{ site.eyebrow }}</div>
+      <h1>{{ site.name }}</h1>
+      <p class="role">{{ site.tagline }}</p>
+      <div class="contact">
+        <span>{{ site.email }}</span>
+      </div>
+      <p class="lead">{{ site.about_content | strip }}</p>
+    </div>
+  </header>
 
-    {%- include header.html -%}
+  <section>
+    <h2>하는 일</h2>
+    <div>
+      <div class="flow">
+        <div class="node"><div class="k">FLOOR</div><div class="t">생산 현장</div><div class="d">설비 · 작업자 · 자재</div></div>
+        <div class="node mine"><div class="k">POP / PDA</div><div class="t">현장 단말</div><div class="d">실적 수집, 입출고, 재고, 실시간 모니터링</div></div>
+        <div class="node mine"><div class="k">MES WEB</div><div class="t">S-MES</div><div class="d">작업지시, 출하, 대시보드, 라벨 발행</div></div>
+        <div class="node mine"><div class="k">IF</div><div class="t">인터페이스</div><div class="d">SAP RFC 송수신, 자동 업데이트 런처</div></div>
+        <div class="node"><div class="k">ERP</div><div class="t">SAP PP · MD</div><div class="d">라우팅 · BOM · MRP 등 MES 연계 기준정보 검토</div></div>
+      </div>
+      <div class="infra"><b>데이터 기반</b> · MSSQL 프로시저 중심 업무 로직 · Redis 캐시 · RabbitMQ 비동기 처리 · TimescaleDB 생산 이력</div>
+      <div class="legend"><i></i>직접 설계·개발한 영역</div>
+    </div>
+  </section>
 
-    <main class="page-content" aria-label="Content">
-        <div class="wrapper">
+  <section>
+    <h2>경력</h2>
+    <div>
+      {%- for job in site.data.experience %}
+      <div class="job">
+        <h3>{{ job.company }}</h3><span class="date">{{ job.dates }}</span>
+        <div class="meta">{{ job.job_title }} · {{ job.quote }}</div>
+        {{ job.description | markdownify }}
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
 
-            {%- include about.html -%}
-
-            {%- if site.data.experience.size > 0 -%}
-                {%- include experience.html -%}
-            {%- endif -%}
-
-            {%- if site.data.projects.size > 0 -%}
-                {%- include projects.html -%}
-            {%- endif -%}
-
-            {%- if site.data.skill.size > 0 -%}
-                {%- include skill.html -%}
-            {%- endif -%}
-
-            {%- if site.data.opensource.size > 0 -%}
-                {%- include opensource.html -%}
-            {%- endif -%}
-
-            {%- if site.data.education.size > 0 -%}
-                {%- include education.html -%}
-            {%- endif -%}
-
-            {%- include more.html -%}
-
+  <section>
+    <h2>주요 프로젝트</h2>
+    <div>
+      {%- for p in site.data.projects %}
+      <div class="proj">
+        <div class="proj-head"><h3>{{ p.name }}</h3><span class="date">{{ p.dates }}</span></div>
+        <p class="summary">{{ p.summary }}</p>
+        {%- if p.sites %}
+        {%- assign overseas = p.sites | where: "region", "해외" | size %}
+        {%- assign pl = p.sites | where: "role", "PL" | size %}
+        {%- assign pm = p.sites | where: "role", "PM" | size %}
+        <div class="stats">
+          <div><b>{{ p.sites | size }}</b><span>구축 프로젝트</span></div>
+          <div><b>{{ overseas }}</b><span>해외 법인</span></div>
+          <div><b>{{ pl | plus: pm }}</b><span>PL · PM 수행</span></div>
         </div>
-    </main>
+        {%- assign years = p.sites | map: "year" | uniq | reverse %}
+        <div class="timeline" style="--cols: {{ years | size }}">
+          {%- for y in years %}
+          <div class="yr">
+            <div class="yr-sites">
+              {%- for s in p.sites %}{% if s.year == y %}
+              <div class="site{% if s.region == '해외' %} abroad{% endif %}">
+                <span class="region">{{ s.region }}</span>
+                <span class="site-name">{{ s.name }}</span>
+                <span class="site-note">{{ s.note }}</span>
+                <span class="role-chip">{{ s.role }}</span>
+              </div>
+              {%- endif %}{% endfor %}
+            </div>
+            <div class="yr-label">{{ y }}</div>
+          </div>
+          {%- endfor %}
+        </div>
+        {%- endif %}
+        {%- if p.core %}
+        <div class="core">
+          <div class="modules">{% for m in p.core.modules %}<span>{{ m }}</span>{% endfor %}</div>
+          <div class="core-bar">{{ p.core.title }}</div>
+        </div>
+        {%- endif %}
+        {%- if p.points %}
+        <dl class="pts">
+          {%- for pt in p.points %}
+          <dt>{{ pt.label }}</dt><dd>{{ pt.text }}</dd>
+          {%- endfor %}
+        </dl>
+        {%- endif %}
+        {%- if p.tags %}
+        <div class="tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</div>
+        {%- endif %}
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
 
-    {%- include footer.html -%}
+  <section>
+    <h2>기술</h2>
+    <div class="skills">
+      {%- for s in site.data.skill %}
+      <div><h3>{{ s.name }}</h3><p>{{ s.description }}</p></div>
+      {%- endfor %}
+    </div>
+  </section>
 
-    <a href="https://github.com/sproogen/resume-theme" target="_blank">
-      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-        alt="Fork me on GitHub">
-    </a>
+  <section>
+    <h2>직접 만든 도구</h2>
+    <div class="tools">
+      {%- for t in site.data.tools %}
+      <div class="tool">
+        <h3>{{ t.name }}</h3>
+        <div class="stack">{{ t.stack }}</div>
+        <p>{{ t.description }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+</main>
 </body>
-
 </html>

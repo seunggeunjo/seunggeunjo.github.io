@@ -1,5 +1,120 @@
 ---
-# Front matter comment to ensure Jekyll properly reads file.
+# Front matter: Jekyll이 이 파일을 Sass로 처리하도록 함
 ---
+/* Layout: 한 장짜리 이력서. 좌측 고정 열(메타) + 우측 본문, 상단에 현장→ERP 시스템 지도 */
+:root{
+  --bg:#f2f4f6; --paper:#ffffff; --ink:#16202b; --sub:#566373; --line:#d9dee4;
+  --accent:#c2501f; --accent-soft:#fbe9e0; --steel:#3c5a74; --steel-soft:#e6edf3;
+  --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f141a; --paper:#161d25; --ink:#e7ecf1; --sub:#9aa7b5; --line:#2a3440;
+  --accent:#ef7a45; --accent-soft:#3a2219; --steel:#8fb3d1; --steel-soft:#1d2a36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141a; --paper:#161d25; --ink:#e7ecf1; --sub:#9aa7b5; --line:#2a3440;
+  --accent:#ef7a45; --accent-soft:#3a2219; --steel:#8fb3d1; --steel-soft:#1d2a36; color-scheme:dark}
 
-@import 'modern-resume-theme';
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 var(--sans);padding:32px 16px 64px}
+.sheet{max-width:960px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+
+header{display:grid;grid-template-columns:132px 1fr;gap:28px;padding:40px 44px 32px;border-bottom:1px solid var(--line)}
+header img{width:132px;aspect-ratio:3/4;object-fit:cover;border-radius:3px;max-width:100%}
+.eyebrow{font:500 12px var(--mono);letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+h1{font-size:34px;line-height:1.2;margin:6px 0 4px;letter-spacing:-.01em}
+.role{font-size:17px;color:var(--sub);margin:0 0 16px}
+.contact{display:flex;flex-wrap:wrap;gap:6px 20px;font:13px var(--mono);color:var(--sub)}
+.contact span{user-select:all}
+.contact a{color:var(--steel)}
+.lead{margin:18px 0 0;max-width:62ch}
+.lead mark{background:none;color:var(--ink);font-weight:700;box-shadow:inset 0 -.4em var(--accent-soft)}
+
+section{display:grid;grid-template-columns:160px 1fr;gap:28px;padding:32px 44px;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+section>h2{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--sub);margin:4px 0 0}
+section>div{min-width:0}
+
+/* 시스템 지도 */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch}
+.node{border:1px solid var(--line);padding:12px;background:var(--paper);position:relative}
+.node+.node{border-left:0}
+.node .k{font:500 11px var(--mono);color:var(--sub);letter-spacing:.06em}
+.node .t{font-weight:700;margin:2px 0 6px}
+.node .d{font-size:12.5px;color:var(--sub);line-height:1.5}
+.node.mine{background:var(--steel-soft)}
+.node.mine .t{color:var(--steel)}
+.infra{margin-top:-1px;border:1px dashed var(--line);padding:10px 12px;font-size:13px;color:var(--sub)}
+.infra b{color:var(--ink)}
+.legend{margin-top:10px;font-size:12px;color:var(--sub)}
+.legend i{display:inline-block;width:10px;height:10px;background:var(--steel-soft);border:1px solid var(--line);vertical-align:-1px;margin-right:4px}
+
+/* 경력 */
+.job{display:grid;grid-template-columns:1fr auto;gap:2px 16px}
+.job+.job{margin-top:28px}
+.job h3{margin:0;font-size:19px}
+.date{font:13px var(--mono);color:var(--sub);font-variant-numeric:tabular-nums;white-space:nowrap}
+.job .meta{grid-column:1/-1;color:var(--sub);font-size:14px}
+.job ul{grid-column:1/-1;margin:10px 0 0;padding-left:18px}
+.job li+li{margin-top:2px}
+.job li strong{color:var(--steel);font-weight:700;margin-right:8px}
+
+/* 프로젝트 */
+.proj+.proj{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.proj-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+.proj h3{margin:0;font-size:17px}
+.proj p{margin:6px 0 0;color:var(--sub);max-width:62ch}
+.proj p.summary{color:var(--ink);font-weight:500}
+.pts{display:grid;grid-template-columns:52px 1fr;gap:8px 14px;margin:14px 0 0}
+.pts dt{font:500 12px/1.9 var(--mono);color:var(--accent)}
+.pts dd{margin:0;font-size:14.5px;min-width:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font:12px var(--mono);padding:2px 8px;border:1px solid var(--line);border-radius:2px;color:var(--steel)}
+
+.role-chip{font:12px var(--mono);padding:1px 7px;border-radius:2px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+
+/* 사업장 집계: 요약 수치 + 연도 타임라인 */
+.stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:16px}
+.stats div{display:flex;align-items:baseline;gap:8px}
+.stats b{font:500 30px/1 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
+.stats span{font-size:13px;color:var(--sub)}
+.timeline{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:10px;margin-top:20px}
+.yr{display:flex;flex-direction:column;min-width:0}
+.yr-sites{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding-bottom:12px}
+.yr-label{font:500 13px var(--mono);color:var(--sub);border-top:2px solid var(--line);padding-top:8px;position:relative}
+.yr-label::before{content:"";position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--steel)}
+.site{border:1px solid var(--line);border-radius:3px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;align-items:flex-start;font-size:13px;line-height:1.45}
+.site.abroad{border-color:var(--accent);background:var(--accent-soft)}
+.site .region{font:11px var(--mono);color:var(--sub);letter-spacing:.04em}
+.site.abroad .region{color:var(--accent)}
+.site-name{color:var(--ink);font-weight:500}
+.site-note{font-size:12px;color:var(--sub)}
+
+/* 공통 코어 위 업무 모듈 */
+.core{margin-top:16px;max-width:520px}
+.modules{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.modules span{text-align:center;font-size:13px;padding:8px 0;border:1px solid var(--line);border-bottom:0;border-radius:3px 3px 0 0;background:var(--steel-soft);color:var(--steel)}
+.core-bar{margin-top:-1px;text-align:center;font:500 12px var(--mono);letter-spacing:.04em;padding:9px;border-radius:0 0 3px 3px;background:var(--steel);color:var(--paper)}
+
+/* 직접 만든 도구 */
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px}
+.tool h3{margin:0;font-size:15px}
+.tool .stack{font:12px var(--mono);color:var(--steel);margin-top:2px}
+.tool p{margin:6px 0 0;font-size:14px;color:var(--sub)}
+
+/* 기술 */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 28px}
+.skills h3{font-size:13px;margin:0 0 6px;color:var(--steel)}
+.skills p{margin:0;font-size:14px}
+
+@media (max-width:720px){
+  header,section{grid-template-columns:1fr;padding:28px 20px;gap:14px}
+  header img{width:96px}
+  .flow{grid-template-columns:1fr}
+  .node+.node{border-left:1px solid var(--line);border-top:0}
+  .skills,.tools{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr;gap:16px}
+  .yr{flex-direction:column-reverse}
+  .yr-sites{padding:10px 0 0}
+  h1{font-size:28px}
+}

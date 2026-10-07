@@ -1,22 +1,20 @@
-- layout: left
-  company: 성우하이텍
-  job_title: 소프트웨어 엔지니어
-  dates: 2022.01 ~ 현재
-  quote: >
-    반도체 제조 장비 전문 기업
-  description: | # this will include new lines to allow paragraphs
-    * MES 자체 솔루션 설계 및 개발 참여
-    * 본사를 포함한 5개 이상의 사업장에 신규 시스템 성공적으로 도입 및 운영
-    * Docker를 통한 리눅스 환경에서 Redis, RabbitMQ, TimeScale 등 서비스 구축
-    * 캐시 데이터 활용 및 로그 관리 강화
-    * 사용자 요구사항 수용 및 업무 환경 효율성 개선
-- layout: left
-  company: 트라이얼코리아
-  job_title: 소프트웨어 엔지니어
-  dates: 2017.01 ~ 2022.01
-  quote: >
-    제조 IT 솔루션 전문 기업
-  description: | # this will include new lines to allow paragraphs
-    * 레거시 시스템 개편 및 유지보수
-    * 현장 업무 환경 개선 및 효율성 증대
-    * 제조 실행 시스템(MES) 개발 및 운영  
+- company: 성우하이텍
+  job_title: IT개발팀 · MES 개발
+  dates: 2022.01 – 현재
+  quote: 현대/기아차 및 글로벌 완성차 1차 협력사
+  description: |
+    * **MES 패키지 설계·개발** 자체 MES(S-MES)의 POP, PDA, 웹 MES, SAP 인터페이스를 설계하고 개발
+    * **해외 프로젝트 PL** 멕시코 SAP/MES 구축에서 POP(MVP 구조)·PDA 아키텍처를 설계하고 생산·영업·자재·품질·물류를 하나의 구조로 통합
+    * **국내외 사업장 도입** 본사 포함 국내외 사업장에 MES/SAP 구축, 2개 프로젝트 PM 수행
+    * **SAP 기준정보 연계** PP·MD 영역의 라우팅, BOM, MRP 등을 MES 연계 관점에서 검토
+    * **데이터 인프라** Redis · RabbitMQ · TimescaleDB 기반 분산 처리 환경 구축·운영
+    * **AI 활용 개발** Orca로 AI 에이전트를 오케스트레이션해 구현·검증을 자동화하고 개발 효율을 높임
+- company: 트라이얼코리아
+  job_title: 응용 프로그램 개발자
+  dates: 2017.01 – 2022.01
+  quote: 연 매출 1,000억 규모 중견 유통회사
+  description: |
+    * 사내 ERP·인사 시스템 개발 및 운영
+    * 매입·검수 프로세스를 설계·개발해 PDA로 현장 도입
+    * 물리적 연결 방식의 기존 PDA를 모바일 앱 기반으로 전면 개편
+    * 사내 SNS 서비스 개발
