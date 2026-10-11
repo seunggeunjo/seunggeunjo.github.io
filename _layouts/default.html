@@ -30,11 +30,11 @@
       <div class="flow">
         <div class="node"><div class="k">FLOOR</div><div class="t">생산 현장</div><div class="d">설비 · 작업자 · 자재</div></div>
         <div class="node mine"><div class="k">POP / PDA</div><div class="t">현장 단말</div><div class="d">실적 수집, 입출고, 재고, 실시간 모니터링</div></div>
-        <div class="node mine"><div class="k">MES WEB</div><div class="t">S-MES</div><div class="d">작업지시, 출하, 대시보드, 라벨 발행</div></div>
+        <div class="node mine"><div class="k">MES WEB</div><div class="t">S-MES</div><div class="d">생산, 출하, 자재, 물류, 영업, 품질, 대시보드</div></div>
         <div class="node mine"><div class="k">IF</div><div class="t">인터페이스</div><div class="d">SAP RFC 송수신, 자동 업데이트 런처</div></div>
         <div class="node"><div class="k">ERP</div><div class="t">SAP PP · MD</div><div class="d">라우팅 · BOM · MRP 등 MES 연계 기준정보 검토</div></div>
       </div>
-      <div class="infra"><b>데이터 기반</b> · MSSQL 프로시저 중심 업무 로직 · Redis 캐시 · RabbitMQ 비동기 처리 · TimescaleDB 생산 이력</div>
+      <div class="infra"><b>데이터 기반</b> · MSSQL 프로시저 중심 업무 로직 · Redis 캐시 · RabbitMQ 비동기 처리 · TimescaleDB 생산 이력 · MongoDB 로그·문서 데이터 저장</div>
       <div class="legend"><i></i>직접 설계·개발한 영역</div>
     </div>
   </section>
@@ -74,7 +74,7 @@
           <div class="yr">
             <div class="yr-sites">
               {%- for s in p.sites %}{% if s.year == y %}
-              <div class="site{% if s.region == '해외' %} abroad{% endif %}">
+              <div class="site{% if s.region == '해외' %} abroad{% elsif s.region == '국내' %} domestic{% endif %}">
                 <span class="region">{{ s.region }}</span>
                 <span class="site-name">{{ s.name }}</span>
                 <span class="site-note">{{ s.note }}</span>

@@ -4,13 +4,13 @@
   quote: 현대/기아차 및 글로벌 완성차 1차 협력사
   description: |
     * **MES 패키지 설계·개발** 자체 MES(S-MES)의 POP, PDA, 웹 MES, SAP 인터페이스를 설계하고 개발
-    * **해외 프로젝트 PL** 멕시코 SAP/MES 구축에서 POP(MVP 구조)·PDA 아키텍처를 설계하고 생산·영업·자재·품질·물류를 하나의 구조로 통합
+    * **프로젝트 PM/PL** 멕시코 MES/SAP 구축에서 POP(MVP 구조)·PDA(MVVM 구조) 아키텍처 전체를 설계하고 생산·영업·자재·품질·물류를 하나의 구조로 통합
     * **국내외 사업장 도입** 본사 포함 국내외 사업장에 MES/SAP 구축, 2개 프로젝트 PM 수행
     * **SAP 기준정보 연계** PP·MD 영역의 라우팅, BOM, MRP 등을 MES 연계 관점에서 검토
-    * **데이터 인프라** Redis · RabbitMQ · TimescaleDB 기반 분산 처리 환경 구축·운영
+    * **데이터 인프라** Redis · RabbitMQ · TimescaleDB · MongoDB 기반 분산 처리 환경 구축·운영
     * **AI 활용 개발** Orca로 AI 에이전트를 오케스트레이션해 구현·검증을 자동화하고 개발 효율을 높임
 - company: 트라이얼코리아
-  job_title: 응용 프로그램 개발자
+  job_title: IT개발팀 · 응용 프로그램 개발자
   dates: 2017.01 – 2022.01
   quote: 연 매출 1,000억 규모 중견 유통회사
   description: |

@@ -11,7 +11,7 @@
       text: 반복 개발과 검증에 드는 시간을 줄여 팀 개발 효율에 기여하고 있습니다.
   tags: [Orca, Claude Code, Codex, Obsidian, Harness Engineering]
 
-- name: 멕시코 SAP/MES 구축
+- name: 멕시코 MES/SAP 구축
   dates: 2025.12 – 2026.10
   summary: 멕시코 법인 신규 구축에서 PL을 맡아 POP와 PDA의 아키텍처를 처음부터 설계했습니다.
   core: # 공통 코어 위에 올라가는 업무 모듈
@@ -21,10 +21,10 @@
     - label: POP 설계
       text: POP를 MVP 구조로 설계해 생산뿐 아니라 영업·자재·품질·물류 프로세스를 하나의 핵심 구조로 통합했습니다. 개발자는 같은 틀 위에서 각 업무 화면을 만들 수 있어 개발이 쉬워지고 화면 간 일관성이 생겼습니다.
     - label: PDA 설계
-      text: PDA 아키텍처 전체를 설계했습니다.
+      text: PDA 아키텍처 전체를 MVVM 디자인 패턴으로 설계했습니다. 이를 통해 생산·자재·영업·품질·물류까지 모든 업무 프로세스를 공통 아키텍처 위에서 개발할 수 있게 만들었습니다.
     - label: 역할
       text: PL로서 개발 아키텍처와 방향을 정하고, POP·웹 MES·인터페이스(IF)의 생산 핵심 프로세스를 직접 설계·개발했습니다.
-  tags: [PL, MVP, POP, PDA, Web MES, SAP IF]
+  tags: [PL, MVP, MVVM, POP, PDA, Web MES, SAP IF]
 
 - name: 데이터 분산 처리 인프라
   dates: 2025.01 – 현재
@@ -33,10 +33,10 @@
     - label: 문제
       text: 실시간 모니터링 조회와 쌓여 가는 생산 이력이 모두 운영 DB에 몰렸습니다.
     - label: 한 일
-      text: Docker 기반 Linux 환경에 Redis(실시간 화면 캐시), RabbitMQ(현장 데이터 비동기 처리), TimescaleDB(생산 이력 시계열 저장)를 구축했습니다.
+      text: Docker 기반 Linux 환경에 Redis(실시간 화면 캐시), RabbitMQ(현장 데이터 비동기 처리), TimescaleDB(생산 이력 시계열 저장), MongoDB(로그·문서 데이터 저장)를 구축했습니다.
     - label: 결과
       text: 실시간 화면 조회 성능을 개선하고 로그·이력 관리 체계를 갖췄습니다.
-  tags: [Docker, Linux, Redis, RabbitMQ, TimescaleDB]
+  tags: [Docker, Linux, Redis, RabbitMQ, TimescaleDB, MongoDB]
 
 - name: S-MES 자체 패키지 개발
   dates: 2023.01 – 2024.12
@@ -45,24 +45,26 @@
     - label: 한 일
       text: POP(생산 실적 수집·모니터링), PDA(입출고·재고), 웹 MES를 개발하고 SAP RFC 인터페이스로 ERP와 연결했습니다. 현장 PC 배포는 자동 업데이트 런처로 해결했습니다.
     - label: 결과
-      text: 본사 포함 5개 이상 사업장이 이 패키지로 MES를 도입해 운영 중입니다.
+      text: 본사 포함 7개 이상 사업장이 이 패키지로 MES를 도입해 운영 중입니다.
   tags: [C#, WinForms, Blazor Server, DevExpress, SAP NCo, MSSQL]
 
-- name: 서창공장 POP 실시간 모니터링 재구축
+- name: 실시간 모니터링 재구축
   dates: 2022.03 – 2022.08
-  summary: 본사 공장의 생산 모니터링을 웹 대시보드로 다시 만들었습니다.
+  summary: 생산 현황을 실시간으로 보여 주는 현장 단말 모니터링과 웹 대시보드를 개발했습니다.
   points:
+    - label: 문제
+      text: 레거시 모니터링의 성능·안정성 문제로 생산 현황을 실시간으로 확인하기 어려웠습니다.
     - label: 한 일
-      text: 레거시 모니터링의 성능·안정성 문제를 걷어내고, 생산 현황을 실시간으로 보여 주는 웹 대시보드를 개발했습니다.
+      text: 현장 단말의 실시간 모니터링을 WPF로 개발하고, 웹에서도 생산 현황을 확인할 수 있도록 웹 대시보드를 개발했습니다.
     - label: 결과
       text: 현장 사용자 피드백을 반영해 화면 구성과 사용성을 개선했습니다.
-  tags: [Web Dashboard, POP]
+  tags: [WPF, Web Dashboard, POP]
 
 - name: 사업장별 MES/SAP 구축
   dates: 2022 – 2026
   summary: 국내외 신규 시스템 도입 현장에서 PL·PM 또는 POP·PDA 개발을 맡았습니다.
   sites: # name은 짧게(카드 높이 통일), note는 한 줄 범위, region: 국내/해외
-    - { year: 2026, name: 멕시코 법인, note: SAP/MES 구축, role: PL, region: 해외 }
+    - { year: 2026, name: 멕시코 법인, note: MES/SAP 구축, role: PL, region: 해외 }
     - { year: 2025, name: 아산성우하이텍, note: MES/SAP 구축, role: POP 개발, region: 국내 }
     - { year: 2024, name: 체코 법인, note: 품질·출하 고도화, role: PDA 개발, region: 해외 }
     - { year: 2023, name: 서창 · 정관공장, note: MES/SAP 구축, role: PDA 개발, region: 국내 }

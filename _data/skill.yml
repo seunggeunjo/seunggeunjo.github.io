@@ -1,9 +1,9 @@
 - name: Language · Framework
-  description: C#, .NET (WinForms, WPF, Blazor Server), Fluxor, TypeScript, Next.js
+  description: C#, .NET (WinForms, WPF, Blazor Server), Xamarin, .NET MAUI, Fluxor, TypeScript, Next.js
 - name: UI
   description: DevExpress, Radzen, WPF UI, Bootstrap, Tailwind CSS
 - name: Database
-  description: MS SQL Server (Stored Procedure 중심), TimescaleDB, MongoDB, SQLite, Dapper
+  description: MSSQL, TimescaleDB, MongoDB, SQLite, Dapper
 - name: Infra · Messaging
   description: Docker, Linux, Redis, RabbitMQ, Vercel
 - name: Integration
