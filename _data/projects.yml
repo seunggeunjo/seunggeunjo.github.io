@@ -64,7 +64,7 @@
   dates: 2022 – 2026
   summary: 국내외 신규 시스템 도입 현장에서 PL·PM 또는 POP·PDA 개발을 맡았습니다.
   sites: # name은 짧게(카드 높이 통일), note는 한 줄 범위, region: 국내/해외
-    - { year: 2026, name: 멕시코 법인, note: MES/SAP 구축, role: PL, region: 해외 }
+    - { year: 2026, name: 멕시코 법인, note: MES/SAP 구축, role: PL · POP 개발, region: 해외 }
     - { year: 2025, name: 아산성우하이텍, note: MES/SAP 구축, role: POP 개발, region: 국내 }
     - { year: 2024, name: 체코 법인, note: 품질·출하 고도화, role: PDA 개발, region: 해외 }
     - { year: 2023, name: 서창 · 정관공장, note: MES/SAP 구축, role: PDA 개발, region: 국내 }

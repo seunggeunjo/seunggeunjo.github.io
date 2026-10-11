@@ -61,7 +61,7 @@
         <p class="summary">{{ p.summary }}</p>
         {%- if p.sites %}
         {%- assign overseas = p.sites | where: "region", "해외" | size %}
-        {%- assign pl = p.sites | where: "role", "PL" | size %}
+        {%- assign pl = p.sites | where_exp: "s", "s.role contains 'PL'" | size %}
         {%- assign pm = p.sites | where: "role", "PM" | size %}
         <div class="stats">
           <div><b>{{ p.sites | size }}</b><span>구축 프로젝트</span></div>
